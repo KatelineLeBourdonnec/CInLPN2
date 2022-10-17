@@ -52,6 +52,12 @@ Loglik <- function(K, nD, mapping, paraOpt, paraFixe, posfix, paras_k, sequence,
     .Call(`_CInLPN2_Loglik`, K, nD, mapping, paraOpt, paraFixe, posfix, paras_k, sequence, type_int, ind_seq_i, MCnr, nmes, m_is, Mod_MatrixY, Mod_MatrixYprim, df, x, z, q, nb_paraD, x0, z0, q0, cholesky, data_surv, data_surv_intY, nYsurv, basehaz, knots_surv, np_surv, survival, assoc, truncation, nE, Xsurv1, Xsurv2, if_link, zitr, ide, tau, tau_is, modA_mat, DeltaT)
 }
 
+#' Function that permits to obtain the variance covariance matrix
+MatCov <- function(K, nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT) {
+    .Call(`_CInLPN2_MatCov`, K, nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT)
+}
+
+
 #' Function that computes the predictions (marginal and subject-specific) for individuals
 #'  
 #' @param K an integer indicating the number of markers
