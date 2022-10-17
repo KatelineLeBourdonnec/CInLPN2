@@ -64,6 +64,41 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// MatCov 
+
+// MatCov
+arma::mat MatCov(int K, int nD, arma::mat matrixP, int m_i, arma::vec tau, arma::vec tau_i, arma::mat Ytildi, arma::mat YtildPrimi, arma::mat x0i, arma::mat z0i, arma::mat xi, arma::mat zi, arma::colvec alpha_mu0, arma::colvec alpha_mu, arma::mat matDw, arma::mat matDw_u, arma::mat matDu, arma::mat matB, arma::mat Sig, arma::mat G_mat_A_0_to_tau_i, arma::mat G_mat_prod_A_0_to_tau, double DeltaT);
+RcppExport SEXP _CInLPN2_MatCov(SEXP KSEXP, SEXP nDSEXP, SEXP matrixPSEXP, SEXP m_iSEXP, SEXP tauSEXP, SEXP tau_iSEXP, SEXP YtildiSEXP, SEXP YtildPrimiSEXP, SEXP x0iSEXP, SEXP z0iSEXP, SEXP xiSEXP, SEXP ziSEXP, SEXP alpha_mu0SEXP, SEXP alpha_muSEXP, SEXP matDwSEXP, SEXP matDw_uSEXP, SEXP matDuSEXP, SEXP matBSEXP, SEXP SigSEXP, SEXP G_mat_A_0_to_tau_iSEXP, SEXP G_mat_prod_A_0_to_tauSEXP, SEXP DeltaTSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< int >::type nD(nDSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matrixP(matrixPSEXP);
+    Rcpp::traits::input_parameter< int >::type m_i(m_iSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type tau(tauSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type tau_i(tau_iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Ytildi(YtildiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type YtildPrimi(YtildPrimiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type x0i(x0iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type z0i(z0iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type xi(xiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type zi(ziSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type alpha_mu0(alpha_mu0SEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type alpha_mu(alpha_muSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matDw(matDwSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matDw_u(matDw_uSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matDu(matDuSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matB(matBSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Sig(SigSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type G_mat_A_0_to_tau_i(G_mat_A_0_to_tau_iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type G_mat_prod_A_0_to_tau(G_mat_prod_A_0_to_tauSEXP);
+    Rcpp::traits::input_parameter< double >::type DeltaT(DeltaTSEXP);
+    rcpp_result_gen = Rcpp::wrap(MatCov(K, nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT));
+    return rcpp_result_gen;
+END_RCPP
+}
+
 // pred
 arma::mat pred(int K, int nD, arma::vec& mapping, arma::vec& paras, arma::vec& m_is, arma::mat& Mod_MatrixY, arma::vec df, arma::mat& x, arma::mat& z, arma::vec& q, bool cholesky, int nb_paraD, arma::mat& x0, arma::mat& z0, arma::vec& q0, arma::vec if_link, arma::vec tau, arma::vec& tau_is, arma::mat& modA_mat, double DeltaT, int MCnr, arma::vec minY, arma::vec maxY, List& knots, arma::vec degree, double epsPred);
 RcppExport SEXP _CInLPN2_pred(SEXP KSEXP, SEXP nDSEXP, SEXP mappingSEXP, SEXP parasSEXP, SEXP m_isSEXP, SEXP Mod_MatrixYSEXP, SEXP dfSEXP, SEXP xSEXP, SEXP zSEXP, SEXP qSEXP, SEXP choleskySEXP, SEXP nb_paraDSEXP, SEXP x0SEXP, SEXP z0SEXP, SEXP q0SEXP, SEXP if_linkSEXP, SEXP tauSEXP, SEXP tau_isSEXP, SEXP modA_matSEXP, SEXP DeltaTSEXP, SEXP MCnrSEXP, SEXP minYSEXP, SEXP maxYSEXP, SEXP knotsSEXP, SEXP degreeSEXP, SEXP epsPredSEXP) {
