@@ -171,11 +171,7 @@ CInLPN2.default <- function(fixed_X0.models, fixed_DeltaX.models, randoms_X0.mod
   }
   
   # estimation
-  
-  MatCov <- function(K = K, nD = nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT) {
-    .Call(`_CInLPN2_MatCov`, K, nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT)
-  }                  
-                    
+              
                     
   est <- CInLPN2.estim(K = K, nD = nD, mapping.to.LP = mapping.to.LP, data = data_F, if_link = if_link, cholesky = cholesky,
                        DeltaT = DeltaT, MCnr = MCnr, nmes = nmes, data_surv = Survdata,
