@@ -64,11 +64,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// MatCov 
-
 // MatCov
-arma::mat MatCov(int K, int nD, arma::mat matrixP, int m_i, arma::vec tau, arma::vec tau_i, arma::mat Ytildi, arma::mat YtildPrimi, arma::mat x0i, arma::mat z0i, arma::mat xi, arma::mat zi, arma::colvec alpha_mu0, arma::colvec alpha_mu, arma::mat matDw, arma::mat matDw_u, arma::mat matDu, arma::mat matB, arma::mat Sig, arma::mat G_mat_A_0_to_tau_i, arma::mat G_mat_prod_A_0_to_tau, double DeltaT);
-RcppExport SEXP _CInLPN2_MatCov(SEXP KSEXP, SEXP nDSEXP, SEXP matrixPSEXP, SEXP m_iSEXP, SEXP tauSEXP, SEXP tau_iSEXP, SEXP YtildiSEXP, SEXP YtildPrimiSEXP, SEXP x0iSEXP, SEXP z0iSEXP, SEXP xiSEXP, SEXP ziSEXP, SEXP alpha_mu0SEXP, SEXP alpha_muSEXP, SEXP matDwSEXP, SEXP matDw_uSEXP, SEXP matDuSEXP, SEXP matBSEXP, SEXP SigSEXP, SEXP G_mat_A_0_to_tau_iSEXP, SEXP G_mat_prod_A_0_to_tauSEXP, SEXP DeltaTSEXP) {
+arma::mat MatCov(int K, int nD, arma::mat matrixP, int m_i, arma::vec tau, arma::vec tau_i, arma::mat Ytildi, arma::mat x0i, arma::mat z0i, arma::mat xi, arma::mat zi, arma::colvec alpha_mu0, arma::colvec alpha_mu, arma::mat matDw, arma::mat matDw_u, arma::mat matDu, arma::mat matB, arma::mat Sig, arma::mat G_mat_A_0_to_tau_i, arma::mat G_mat_prod_A_0_to_tau, double DeltaT);
+RcppExport SEXP _CInLPN2_MatCov(SEXP KSEXP, SEXP nDSEXP, SEXP matrixPSEXP, SEXP m_iSEXP, SEXP tauSEXP, SEXP tau_iSEXP, SEXP YtildiSEXP, SEXP x0iSEXP, SEXP z0iSEXP, SEXP xiSEXP, SEXP ziSEXP, SEXP alpha_mu0SEXP, SEXP alpha_muSEXP, SEXP matDwSEXP, SEXP matDw_uSEXP, SEXP matDuSEXP, SEXP matBSEXP, SEXP SigSEXP, SEXP G_mat_A_0_to_tau_iSEXP, SEXP G_mat_prod_A_0_to_tauSEXP, SEXP DeltaTSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -79,7 +77,6 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::vec >::type tau(tauSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type tau_i(tau_iSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type Ytildi(YtildiSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type YtildPrimi(YtildPrimiSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type x0i(x0iSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type z0i(z0iSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type xi(xiSEXP);
@@ -94,11 +91,105 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::mat >::type G_mat_A_0_to_tau_i(G_mat_A_0_to_tau_iSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type G_mat_prod_A_0_to_tau(G_mat_prod_A_0_to_tauSEXP);
     Rcpp::traits::input_parameter< double >::type DeltaT(DeltaTSEXP);
-    rcpp_result_gen = Rcpp::wrap(MatCov(K, nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT));
+    rcpp_result_gen = Rcpp::wrap(MatCov(K, nD, matrixP, m_i, tau, tau_i, Ytildi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT));
     return rcpp_result_gen;
 END_RCPP
 }
-
+// Esperance
+arma::vec Esperance(int K, int nD, arma::mat matrixP, int m_i, arma::vec tau, arma::vec tau_i, arma::mat Ytildi, arma::mat x0i, arma::mat z0i, arma::mat xi, arma::mat zi, arma::colvec alpha_mu0, arma::colvec alpha_mu, arma::mat matDw, arma::mat matDw_u, arma::mat matDu, arma::mat matB, arma::mat Sig, arma::mat G_mat_A_0_to_tau_i, arma::mat G_mat_prod_A_0_to_tau, double DeltaT);
+RcppExport SEXP _CInLPN2_Esperance(SEXP KSEXP, SEXP nDSEXP, SEXP matrixPSEXP, SEXP m_iSEXP, SEXP tauSEXP, SEXP tau_iSEXP, SEXP YtildiSEXP, SEXP x0iSEXP, SEXP z0iSEXP, SEXP xiSEXP, SEXP ziSEXP, SEXP alpha_mu0SEXP, SEXP alpha_muSEXP, SEXP matDwSEXP, SEXP matDw_uSEXP, SEXP matDuSEXP, SEXP matBSEXP, SEXP SigSEXP, SEXP G_mat_A_0_to_tau_iSEXP, SEXP G_mat_prod_A_0_to_tauSEXP, SEXP DeltaTSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< int >::type nD(nDSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matrixP(matrixPSEXP);
+    Rcpp::traits::input_parameter< int >::type m_i(m_iSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type tau(tauSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type tau_i(tau_iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Ytildi(YtildiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type x0i(x0iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type z0i(z0iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type xi(xiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type zi(ziSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type alpha_mu0(alpha_mu0SEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type alpha_mu(alpha_muSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matDw(matDwSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matDw_u(matDw_uSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matDu(matDuSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type matB(matBSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Sig(SigSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type G_mat_A_0_to_tau_i(G_mat_A_0_to_tau_iSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type G_mat_prod_A_0_to_tau(G_mat_prod_A_0_to_tauSEXP);
+    Rcpp::traits::input_parameter< double >::type DeltaT(DeltaTSEXP);
+    rcpp_result_gen = Rcpp::wrap(Esperance(K, nD, matrixP, m_i, tau, tau_i, Ytildi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT));
+    return rcpp_result_gen;
+END_RCPP
+}
+// MatCovPosterior
+arma::mat MatCovPosterior(int K, int nD, arma::vec& mapping, arma::vec& paraOpt, arma::vec& paraFixe, arma::vec& posfix, arma::vec& m_is, arma::mat& Mod_MatrixY, arma::vec& df, arma::mat& x, arma::mat& z, arma::vec& q, int nb_paraD, arma::mat& x0, arma::mat& z0, arma::vec& q0, arma::vec if_link, arma::vec& tau, arma::vec& tau_is, arma::mat& modA_mat, double DeltaT, int ntimes);
+RcppExport SEXP _CInLPN2_MatCovPosterior(SEXP KSEXP, SEXP nDSEXP, SEXP mappingSEXP, SEXP paraOptSEXP, SEXP paraFixeSEXP, SEXP posfixSEXP, SEXP m_isSEXP, SEXP Mod_MatrixYSEXP, SEXP dfSEXP, SEXP xSEXP, SEXP zSEXP, SEXP qSEXP, SEXP nb_paraDSEXP, SEXP x0SEXP, SEXP z0SEXP, SEXP q0SEXP, SEXP if_linkSEXP, SEXP tauSEXP, SEXP tau_isSEXP, SEXP modA_matSEXP, SEXP DeltaTSEXP, SEXP ntimesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< int >::type nD(nDSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type mapping(mappingSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type paraOpt(paraOptSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type paraFixe(paraFixeSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type posfix(posfixSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type m_is(m_isSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type Mod_MatrixY(Mod_MatrixYSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type df(dfSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type z(zSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type q(qSEXP);
+    Rcpp::traits::input_parameter< int >::type nb_paraD(nb_paraDSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type x0(x0SEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type z0(z0SEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type q0(q0SEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type if_link(if_linkSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type tau(tauSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type tau_is(tau_isSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type modA_mat(modA_matSEXP);
+    Rcpp::traits::input_parameter< double >::type DeltaT(DeltaTSEXP);
+    Rcpp::traits::input_parameter< int >::type ntimes(ntimesSEXP);
+    rcpp_result_gen = Rcpp::wrap(MatCovPosterior(K, nD, mapping, paraOpt, paraFixe, posfix, m_is, Mod_MatrixY, df, x, z, q, nb_paraD, x0, z0, q0, if_link, tau, tau_is, modA_mat, DeltaT, ntimes));
+    return rcpp_result_gen;
+END_RCPP
+}
+// EsperancePosterior
+arma::vec EsperancePosterior(int K, int nD, arma::vec& mapping, arma::vec& paraOpt, arma::vec& paraFixe, arma::vec& posfix, arma::vec& m_is, arma::mat& Mod_MatrixY, arma::vec& df, arma::mat& x, arma::mat& z, arma::vec& q, int nb_paraD, arma::mat& x0, arma::mat& z0, arma::vec& q0, arma::vec if_link, arma::vec& tau, arma::vec& tau_is, arma::mat& modA_mat, double DeltaT, int ntimes);
+RcppExport SEXP _CInLPN2_EsperancePosterior(SEXP KSEXP, SEXP nDSEXP, SEXP mappingSEXP, SEXP paraOptSEXP, SEXP paraFixeSEXP, SEXP posfixSEXP, SEXP m_isSEXP, SEXP Mod_MatrixYSEXP, SEXP dfSEXP, SEXP xSEXP, SEXP zSEXP, SEXP qSEXP, SEXP nb_paraDSEXP, SEXP x0SEXP, SEXP z0SEXP, SEXP q0SEXP, SEXP if_linkSEXP, SEXP tauSEXP, SEXP tau_isSEXP, SEXP modA_matSEXP, SEXP DeltaTSEXP, SEXP ntimesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< int >::type nD(nDSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type mapping(mappingSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type paraOpt(paraOptSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type paraFixe(paraFixeSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type posfix(posfixSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type m_is(m_isSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type Mod_MatrixY(Mod_MatrixYSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type df(dfSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type z(zSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type q(qSEXP);
+    Rcpp::traits::input_parameter< int >::type nb_paraD(nb_paraDSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type x0(x0SEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type z0(z0SEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type q0(q0SEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type if_link(if_linkSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type tau(tauSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type tau_is(tau_isSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type modA_mat(modA_matSEXP);
+    Rcpp::traits::input_parameter< double >::type DeltaT(DeltaTSEXP);
+    Rcpp::traits::input_parameter< int >::type ntimes(ntimesSEXP);
+    rcpp_result_gen = Rcpp::wrap(EsperancePosterior(K, nD, mapping, paraOpt, paraFixe, posfix, m_is, Mod_MatrixY, df, x, z, q, nb_paraD, x0, z0, q0, if_link, tau, tau_is, modA_mat, DeltaT, ntimes));
+    return rcpp_result_gen;
+END_RCPP
+}
 // pred
 arma::mat pred(int K, int nD, arma::vec& mapping, arma::vec& paras, arma::vec& m_is, arma::mat& Mod_MatrixY, arma::vec df, arma::mat& x, arma::mat& z, arma::vec& q, bool cholesky, int nb_paraD, arma::mat& x0, arma::mat& z0, arma::vec& q0, arma::vec if_link, arma::vec tau, arma::vec& tau_is, arma::mat& modA_mat, double DeltaT, int MCnr, arma::vec minY, arma::vec maxY, List& knots, arma::vec degree, double epsPred);
 RcppExport SEXP _CInLPN2_pred(SEXP KSEXP, SEXP nDSEXP, SEXP mappingSEXP, SEXP parasSEXP, SEXP m_isSEXP, SEXP Mod_MatrixYSEXP, SEXP dfSEXP, SEXP xSEXP, SEXP zSEXP, SEXP qSEXP, SEXP choleskySEXP, SEXP nb_paraDSEXP, SEXP x0SEXP, SEXP z0SEXP, SEXP q0SEXP, SEXP if_linkSEXP, SEXP tauSEXP, SEXP tau_isSEXP, SEXP modA_matSEXP, SEXP DeltaTSEXP, SEXP MCnrSEXP, SEXP minYSEXP, SEXP maxYSEXP, SEXP knotsSEXP, SEXP degreeSEXP, SEXP epsPredSEXP) {
@@ -400,6 +491,10 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_CInLPN2_Loglik", (DL_FUNC) &_CInLPN2_Loglik, 43},
+    {"_CInLPN2_MatCov", (DL_FUNC) &_CInLPN2_MatCov, 21},
+    {"_CInLPN2_Esperance", (DL_FUNC) &_CInLPN2_Esperance, 21},
+    {"_CInLPN2_MatCovPosterior", (DL_FUNC) &_CInLPN2_MatCovPosterior, 22},
+    {"_CInLPN2_EsperancePosterior", (DL_FUNC) &_CInLPN2_EsperancePosterior, 22},
     {"_CInLPN2_pred", (DL_FUNC) &_CInLPN2_pred, 26},
     {"_CInLPN2_vectorise", (DL_FUNC) &_CInLPN2_vectorise, 1},
     {"_CInLPN2_KmatDiag", (DL_FUNC) &_CInLPN2_KmatDiag, 1},
