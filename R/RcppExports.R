@@ -52,11 +52,77 @@ Loglik <- function(K, nD, mapping, paraOpt, paraFixe, posfix, paras_k, sequence,
     .Call(`_CInLPN2_Loglik`, K, nD, mapping, paraOpt, paraFixe, posfix, paras_k, sequence, type_int, ind_seq_i, MCnr, nmes, m_is, Mod_MatrixY, Mod_MatrixYprim, df, x, z, q, nb_paraD, x0, z0, q0, cholesky, data_surv, data_surv_intY, nYsurv, basehaz, knots_surv, np_surv, survival, assoc, truncation, nE, Xsurv1, Xsurv2, if_link, zitr, ide, tau, tau_is, modA_mat, DeltaT)
 }
 
-#' Function that permits to obtain the variance covariance matrix
-MatCov <- function(K, nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT) {
-    .Call(`_CInLPN2_MatCov`, K, nD, matrixP, m_i, tau, tau_i, Ytildi, YtildPrimi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT)
+MatCov <- function(K, nD, matrixP, m_i, tau, tau_i, Ytildi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT) {
+    .Call(`_CInLPN2_MatCov`, K, nD, matrixP, m_i, tau, tau_i, Ytildi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT)
 }
 
+Esperance <- function(K, nD, matrixP, m_i, tau, tau_i, Ytildi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT) {
+    .Call(`_CInLPN2_Esperance`, K, nD, matrixP, m_i, tau, tau_i, Ytildi, x0i, z0i, xi, zi, alpha_mu0, alpha_mu, matDw, matDw_u, matDu, matB, Sig, G_mat_A_0_to_tau_i, G_mat_prod_A_0_to_tau, DeltaT)
+}
+
+#' Function that computes the log-likelihood of the observed data
+#'  
+#' @param K an integer indicating the number of markers
+#' @param nD an integer indicating the number of latent processes
+#' @param mapping indicates which outcome measured which latent process, it is a mapping table between
+#' outcomes and latents processes
+#' @param paraOpt initial values for model parameters
+#' @param paraFixe values associated to the index of parameters to be constrained
+#' @param posfix position of parameters to be constrained
+#' @param m_is vector of numbers of visit occasions for individuals
+#' @param Mod_MatrixY model.matrix from markers transformation submodels
+#' @param df vector of numbers of parameters for each transformation model
+#' @param nb_paraD number of paramerters of the variance-covariance matrix of random effects
+#' @param x0 model.matrix for baseline's fixed submodel
+#' @param x model.matrix for change's fixed submodel
+#' @param z0 model.matrix for baseline's random effects submodel
+#' @param z model.matrix for change's random effects submodel
+#' @param q0 a vector of number of random effects on each initial latent process level
+#' @param q a vector of number of random effects on each change latent process over time
+#' @param if_link indicates if non linear link is used to transform an outcome
+#' @param tau a vector of integers indicating times (including maximum time)
+#' @param tau_is a vector of integers indicating times for individuals
+#' @param modA_mat model.matrix for elements of the transistion matrix
+#' @param DeltaT double that indicates the discretization step  
+#' 
+#' @return a matrix
+#' @export
+#' 
+MatCovPosterior <- function(K, nD, mapping, paraOpt, paraFixe, posfix, m_is, Mod_MatrixY, df, x, z, q, nb_paraD, x0, z0, q0, if_link, tau, tau_is, modA_mat, DeltaT, ntimes) {
+    .Call(`_CInLPN2_MatCovPosterior`, K, nD, mapping, paraOpt, paraFixe, posfix, m_is, Mod_MatrixY, df, x, z, q, nb_paraD, x0, z0, q0, if_link, tau, tau_is, modA_mat, DeltaT, ntimes)
+}
+
+#' Function that computes the log-likelihood of the observed data
+#'  
+#' @param K an integer indicating the number of markers
+#' @param nD an integer indicating the number of latent processes
+#' @param mapping indicates which outcome measured which latent process, it is a mapping table between
+#' outcomes and latents processes
+#' @param paraOpt initial values for model parameters
+#' @param paraFixe values associated to the index of parameters to be constrained
+#' @param posfix position of parameters to be constrained
+#' @param m_is vector of numbers of visit occasions for individuals
+#' @param Mod_MatrixY model.matrix from markers transformation submodels
+#' @param df vector of numbers of parameters for each transformation model
+#' @param nb_paraD number of paramerters of the variance-covariance matrix of random effects
+#' @param x0 model.matrix for baseline's fixed submodel
+#' @param x model.matrix for change's fixed submodel
+#' @param z0 model.matrix for baseline's random effects submodel
+#' @param z model.matrix for change's random effects submodel
+#' @param q0 a vector of number of random effects on each initial latent process level
+#' @param q a vector of number of random effects on each change latent process over time
+#' @param if_link indicates if non linear link is used to transform an outcome
+#' @param tau a vector of integers indicating times (including maximum time)
+#' @param tau_is a vector of integers indicating times for individuals
+#' @param modA_mat model.matrix for elements of the transistion matrix
+#' @param DeltaT double that indicates the discretization step  
+#' 
+#' @return a matrix
+#' @export
+#' 
+EsperancePosterior <- function(K, nD, mapping, paraOpt, paraFixe, posfix, m_is, Mod_MatrixY, df, x, z, q, nb_paraD, x0, z0, q0, if_link, tau, tau_is, modA_mat, DeltaT, ntimes) {
+    .Call(`_CInLPN2_EsperancePosterior`, K, nD, mapping, paraOpt, paraFixe, posfix, m_is, Mod_MatrixY, df, x, z, q, nb_paraD, x0, z0, q0, if_link, tau, tau_is, modA_mat, DeltaT, ntimes)
+}
 
 #' Function that computes the predictions (marginal and subject-specific) for individuals
 #'  
